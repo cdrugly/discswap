@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+	<title>Disclaimer Swap Tool</title>
+<script
+			  src="https://code.jquery.com/jquery-3.1.1.min.js"
+			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			  crossorigin="anonymous"></script>
+
+</head>
+<body>
+ <h3>Original Disclaimer</h3>
+<textarea id="input" style="width:100%; height:250px;"></textarea>
+<br>
+<input type="button" id="convert" value="convert">
+<br>
+<h3>New Disclaimer</h3>
+<textarea id="output" style="width:100%; height:250px;"></textarea>
+
+<script>
+function replaceAll(str, find, replace) {
+  return str.replace(new RegExp(find, 'g'), replace);
+}
+
+$( "#convert" ).click(function() {
+	var old_disclaimer = $("#input").val();
+	var new_disclaimer;
+	new_disclaimer = replaceAll(old_disclaimer, "á", "&aacute;");
+	new_disclaimer = replaceAll(new_disclaimer, "ó", "&oacute;"); 
+	new_disclaimer = replaceAll(new_disclaimer, "í", "&iacute;"); 
+	new_disclaimer = replaceAll(new_disclaimer, "ú", "&uacute;"); 
+	new_disclaimer = replaceAll(new_disclaimer, "é", "&eacute;");
+	new_disclaimer = replaceAll(new_disclaimer, "ñ", "&ntilde;");
+	new_disclaimer = replaceAll(new_disclaimer, "–", "&ndash;"); 
+	new_disclaimer = replaceAll(new_disclaimer, "’", "'"); 
+	new_disclaimer = replaceAll(new_disclaimer, "‘", "'"); 
+	new_disclaimer = replaceAll(new_disclaimer, "“", "\""); 
+	new_disclaimer = replaceAll(new_disclaimer, "”", "\""); 
+	new_disclaimer = replaceAll(new_disclaimer, "XX/XX/20XX", "$field_X"); 
+	new_disclaimer = replaceAll(new_disclaimer, "XX/XX/XXXX", "$field_X"); 
+	new_disclaimer = replaceAll(new_disclaimer, "XX/XX/XX", "$field_X"); 
+	new_disclaimer = replaceAll(new_disclaimer, "Performance 25", "$field_X"); 
+	new_disclaimer = replaceAll(new_disclaimer, "Broadcast TV Fee \\(up to \\$X.XX/mo.\\)", "Broadcast TV Fee (up to $bt_fee/mo.)"); 
+	new_disclaimer = replaceAll(new_disclaimer, "Regional Sports Fee \\(up to \\$X.XX/mo.\\)", "Regional Sports Fee (up to $rs_fee/mo.)"); 
+	new_disclaimer = replaceAll(new_disclaimer, "\\(a\\)", "<span style=\"font-family:$helvnbold\">(a)</span>"); 
+	new_disclaimer = replaceAll(new_disclaimer, "\\(b\\)", "<span style=\"font-family:$helvnbold\">(b)</span>"); 
+	new_disclaimer = replaceAll(new_disclaimer, "\\(1\\)", "<span style=\"font-family:$helvnbold\">(1)</span>"); 
+	new_disclaimer = replaceAll(new_disclaimer, "\\(2\\)", "<span style=\"font-family:$helvnbold\">(2)</span>"); 
+	new_disclaimer = replaceAll(new_disclaimer, "\\(3\\)", "<span style=\"font-family:$helvnbold\">(3)</span>"); 
+	new_disclaimer = replaceAll(new_disclaimer, "\\(4\\)", "<span style=\"font-family:$helvnbold\">(4)</span>"); 
+	new_disclaimer = replaceAll(new_disclaimer, "\\(5\\)", "<span style=\"font-family:$helvnbold\">(5)</span>"); 
+	new_disclaimer = replaceAll(new_disclaimer, "Television:", "<span style=\"font-family:$helvnbold\">Television:</span>"); 
+	new_disclaimer = replaceAll(new_disclaimer, "TV:", "<span style=\"font-family:$helvnbold\">TV:</span>"); 
+	new_disclaimer = replaceAll(new_disclaimer, "X1:", "<span style=\"font-family:$helvnbold\">X1:</span>"); 
+	new_disclaimer = replaceAll(new_disclaimer, "Voice:", "<span style=\"font-family:$helvnbold\">Voice:</span>"); 	
+	new_disclaimer = replaceAll(new_disclaimer, "Internet:", "<span style=\"font-family:$helvnbold\">Internet:</span>"); 
+	new_disclaimer = replaceAll(new_disclaimer, "Netflix:", "<span style=\"font-family:$helvnbold\">Netflix:</span>"); 
+	new_disclaimer = replaceAll(new_disclaimer, "Apps:", "<span style=\"font-family:$helvnbold\">Apps:</span>"); 
+	new_disclaimer = replaceAll(new_disclaimer, "Home:", "<span style=\"font-family:$helvnbold\">Home:</span>"); 
+	new_disclaimer = replaceAll(new_disclaimer, "XFINITY apps", "<span style=\"font-family:$helvnbold\">XFINITY apps</span>"); 
+	new_disclaimer = replaceAll(new_disclaimer, "Xfinity apps", "<span style=\"font-family:$helvnbold\">Xfinity apps</span>");
+	new_disclaimer = replaceAll(new_disclaimer, "Televisi&oacute;n:", "<span style=\"font-family:$helvnbold\">Televisi&oacute;n:</span>"); 
+	new_disclaimer = replaceAll(new_disclaimer, "Internet Tier", "$field_X"); 
+	new_disclaimer = replaceAll(new_disclaimer, "™", "&trade;"); 
+	new_disclaimer = replaceAll(new_disclaimer, "©20XX", "&copy;$year");
+	new_disclaimer = replaceAll(new_disclaimer, "©2018", "&copy;$year");  
+	new_disclaimer = replaceAll(new_disclaimer, "© 20XX", "&copy;$year"); 
+	new_disclaimer = replaceAll(new_disclaimer, "©", "&copy;"); 
+	new_disclaimer = replaceAll(new_disclaimer, "®", "<sup>&reg;</sup>"); 
+	new_disclaimer = replaceAll(new_disclaimer, "License #s: AZ: ROC 280515, BTR 18287-0; CA: CSLB 974291, ACO 7118; MN: TS674412; NM: 373379; OR: CCB 192945; TX: ACR-1672104,-1818, B16922, B02571; UT: 8226921-6501; WA: COMCABS892DS.","<span style=\"font-family:$helvnbold\">License #s: AZ:</span> ROC 280515, BTR 18287-0; <span style=\"font-family:$helvnbold\">CA:</span> CSLB 974291, ACO 7118; <span style=\"font-family:$helvnbold\">MN:</span> TS674412; <span style=\"font-family:$helvnbold\">NM:</span> 373379; <span style=\"font-family:$helvnbold\">OR:</span> CCB 192945; <span style=\"font-family:$helvnbold\">TX:</span> ACR-1672104,-1818, B16922, B02571; <span style=\"font-family:$helvnbold\">UT:</span> 8226921-6501; <span style=\"font-family:$helvnbold\">WA:</span> COMCABS892DS."); 
+	new_disclaimer = replaceAll(new_disclaimer, "License #s: AZ: ROC 280515, BTR 18287-0; CA: CSLB 974291, ACO 7118 licensed and regulated by the Bureau of Security and Investigative Services, Department of Consumer Affairs, Sacramento, CA, 95814; MN: TS674412; NM: 373379; OR: CCB 192945 All electrical work is performed by a licensed subcontractor; TX: B-16922,-02571, ACR-1672104,-1818 We are licensed by the Texas Department of Public Safety Private Security Board whose address is: P.O. Box 4087, Austin, TX 78773, \\(512\\) 424-7710; UT: 8226921-6501; WA: COMCABS892DS.", "<span style=\"font-family:$helvnbold\">License #s: AZ:</span> ROC 280515, BTR 18287-0; CA: CSLB 974291, ACO 7118 <span style=\"font-family:$helvnbold\">licensed and regulated by the Bureau of Security and Investigative Services, Department of Consumer Affairs, Sacramento, CA, 95814; MN:</span> TS674412; <span style=\"font-family:$helvnbold\">NM:</span> 373379; <span style=\"font-family:$helvnbold\">OR:</span> CCB 192945 <span style=\"font-family:$helvnbold\">All electrical work is performed by a licensed subcontractor; TX:</span> B-16922,-02571, ACR-1672104,-1818 <span style=\"font-family:$helvnbold\">We are licensed by the Texas Department of Public Safety Private Security Board whose address is: P.O. Box 4087, Austin, TX 78773, (512) 424-7710; UT:</span> 8226921-6501; <span style=\"font-family:$helvnbold\">WA:</span> COMCABS892DS."); 
+
+
+	$("#output").val("");
+	$("#output").val(new_disclaimer);
+});
+</script>
+
+</body>
+</html>
