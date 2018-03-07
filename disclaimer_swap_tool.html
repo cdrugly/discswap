@@ -42,6 +42,7 @@ $( "#convert" ).click(function() {
 	new_disclaimer = replaceAll(new_disclaimer, "XX/XX/XXXX", "$field_X"); 
 	new_disclaimer = replaceAll(new_disclaimer, "XX/XX/XX", "$field_X"); 
 	new_disclaimer = replaceAll(new_disclaimer, "Performance 25", "$field_X"); 
+	new_disclaimer = replaceAll(new_disclaimer, "Broadcast TV Fee up to \\$X.XX/mo.", "Broadcast TV Fee up to $bt_fee/mo."); 
 	new_disclaimer = replaceAll(new_disclaimer, "Broadcast TV Fee \\(up to \\$X.XX/mo.\\)", "Broadcast TV Fee (up to $bt_fee/mo.)"); 
 	new_disclaimer = replaceAll(new_disclaimer, "Regional Sports Fee \\(up to \\$X.XX/mo.\\)", "Regional Sports Fee (up to $rs_fee/mo.)"); 
 	new_disclaimer = replaceAll(new_disclaimer, "\\(a\\)", "<span style=\"font-family:$helvnbold\">(a)</span>"); 
